@@ -1,0 +1,94 @@
+Nodejs assignment-
+Ques1-
+. Create a `greetings.js` Module
+ - Write a function `greet(name)` that returns:
+ "Hello, <name>! Welcome to the Node.js module system."
+ - Export the function as a module.
+function greet(name) {
+  return `Hello, ${name}! Welcome to the Node.js module system.`;
+}
+
+module.exports = greet;
+const greet = require('./greetings');
+
+console.log(greet('Mahak'));
+Output-
+Hello, Mahak! Welcome to the Node.js module system.
+
+Ques2-
+Create a `mathOperations.js` Module
+ - Write and export the following functions:
+ - `add(a, b)` - returns the sum of two numbers.
+ - `subtract(a, b)` - returns the difference between two numbers.
+ - `multiply(a, b)` - returns the product of two numbers.
+ - `divide(a, b)` - returns the quotient
+ 
+
+function add(a, b) {
+  return a + b;
+}
+
+function subtract(a, b) {
+  return a - b;
+}
+
+function multiply(a, b) {
+  return a * b;
+}
+
+function divide(a, b) {
+  if (b === 0) {
+    throw new Error("Cannot divide by zero.");
+  }
+  return a / b;
+}
+
+module.exports = {
+  add,
+  subtract,
+  multiply,
+  divide
+};
+const math = require('./mathOperations');
+
+console.log("Add:", math.add(10, 5));
+console.log("Subtract:", math.subtract(10, 5));
+console.log("Multiply:", math.multiply(10, 5));
+console.log("Divide:", math.divide(10, 5));
+
+Output-
+Add: 15
+Subtract: 5
+Multiply: 50
+Divide: 2
+
+Ques3-
+ Create a `main.js` File
+ - Import both `greetings.js` and `mathOperations.js`.
+ - Use `greet(name)` to greet a user.
+ - Perform all four math operations and log the results.
+
+
+
+const greet = require('./greetings');
+const math = require('./mathOperations');
+
+
+const userName = 'Mahak';
+console.log(greet(userName));
+
+
+const a = 12;
+const b = 4;
+
+console.log(`Add: ${math.add(a, b)}`);
+console.log(`Subtract: ${math.subtract(a, b)}`);
+console.log(`Multiply: ${math.multiply(a, b)}`);
+console.log(`Divide: ${math.divide(a, b)}`);
+
+Output-
+Hello, Mahak! Welcome to the Node.js module system.
+Add: 16
+Subtract: 8
+Multiply: 48
+Divide: 3
